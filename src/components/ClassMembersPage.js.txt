@@ -1,0 +1,39 @@
+// ClassMembersPage.js
+
+import React, { useEffect, useState } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { db } from '../firebase';
+import './ClassMembersPage.css';  // optional CSS
+
+function ClassMembersPage() {
+    const [members, setMembers] = useState([]);
+    const { id } = useParams();  // this assumes your route has :id as a dynamic segment, representing class ID
+
+    useEffect(() => {
+        const unsubscribe = db.collection('classes').doc(id).onSnapshot(snapshot => {
+            const classData = snapshot.data();
+
+            // Assuming 'members' in Firestore is an array of user objects or IDs
+            if (classData && classData.members) {
+                setMembers(classData.members);  // If members are user objects
+                // If members are user IDs, you'd need another step to fetch user details just like the previous example
+            }
+        });
+
+        return () => unsubscribe();  // Cleanup on component unmount
+    }, [id]);
+
+    return (
+        <div className="classMembersPage">
+            <h2>Members of the Class</h2>
+            <ul>
+                {members.map(member => (
+                    <li key={member.id || member}>{member.displayName || member}</li>
+                    // Display member.displayName if members are user objects, member directly if they are IDs
+                ))}
+            </ul>
+        </div>
+    );
+}
+
+export default ClassMembersPage;

@@ -1,0 +1,64 @@
+.classCard__upper {
+  background-color: #008d7d;
+  height: 140px;
+  position: relative;
+  color: white;
+  padding: 10px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.classCard {
+  width: 300px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.classCard__middle {
+  height: 150px;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.classCard__creatorPhoto {
+  position: absolute;
+  right: 10px;
+  top: 70px;
+  border-radius: 9999px;
+}
+
+.classCard__className {
+  font-weight: 600;
+  font-size: 30px;
+}
+
+.classCard__className:hover{
+  text-decoration: underline 1px solid;
+}
+
+.classCard__creatorName {
+  position: absolute;
+  bottom: 12px;
+  font-size: 15px;
+}
+
+.classCard__creatorName:hover{
+  text-decoration: underline 1px solid;
+}
+
+.classCard__lower {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.classCard__section,
+.classCard__subject {
+    font-size: 14px;
+    font-weight: 500;
+    margin: 5px 0;
+}
+
+.classCard__section,
+.classCard__subject:hover {
+    text-decoration: underline 1px solid;
+}

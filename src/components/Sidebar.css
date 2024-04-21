@@ -1,0 +1,17 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    background-color: #f7f7f7;
+    border-right: 1px solid #ddd;
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 1;
+  }
+
+.sidebar-options{
+    font-size: 16 px;
+    font-weight: 600;
+}
